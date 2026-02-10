@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suganing || Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- UI Toggle Button - Always Visible -->
+    <button class="ui-toggle-btn" id="uiToggleBtn" aria-label="Toggle UI Visibility">
+        <svg viewBox="0 0 24 24" id="eyeIcon">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="ui-element">
+        <div class="logo">SUGANING</div>
+        <nav id="mainNav">
+            <a onclick="openOverlay('about')">About</a>
+            <a onclick="openOverlay('testimonials')">Testimonials</a>
+            <a onclick="openOverlay('contact')">Contact</a>
+            <button class="fullscreen-btn" id="fullscreenBtn" aria-label="Toggle Fullscreen">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                </svg>
+            </button>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Slider -->
+    <div class="slider-wrapper">
+        <div class="slider-container" id="slider">
+            <!-- Slide 1 -->
+            <div class="slide active" data-index="0">
+                <div class="parallax-layer background-layer">
+                    <img src="wa2.jpeg">
+                </div>27
+                <div class="image-info ui-element">
+                    <h2>Suganing</h2>
+                    <p>Tempat pemandian gratis dengan air yang bersih dan segar."</p>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" data-index="1">
+                <div class="parallax-layer background-layer">
+                    <img src="img.jpeg">
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide" data-index="2">
+                <div class="parallax-layer background-layer">
+                    <img src="suganing1.jpeg">
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide" data-index="3">
+                <div class="parallax-layer background-layer">
+                    <img src="img.jpeg">
+                </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide" data-index="4">
+                <div class="parallax-layer background-layer">
+                    <img src="images.jpeg">
+            </div>
+        </div>
+
+            <!-- Slide 6 -->
+            <div class="slide" data-index="5">
+                <div class="parallax-layer background-layer">
+                    <img src="foto.jpeg">
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="slide" data-index="6">
+                <div class="parallax-layer background-layer">
+                    <img src="foto2.jpeg" >
+                </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="slide" data-index="7">
+                <div class="parallax-layer background-layer">
+                    <img src="6.jpeg" >
+                </div>
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="slide" data-index="8">
+                <div class="parallax-layer background-layer">
+                    <img src="wa1.jpeg" >
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-arrow prev ui-element">‹</div>
+            <div class="nav-arrow next ui-element">›</div>
+
+            <!-- Dots -->
+            <div class="dots-container ui-element">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <span class="dot" data-slide="6"></span>
+                <span class="dot" data-slide="7"></span>
+                <span class="dot" data-slide="8"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Parallax Shapes -->
+    <div class="parallax-shape shape-1 ui-element"></div>
+    <div class="parallax-shape shape-2 ui-element"></div>
+
+    <!-- Play/Pause Button -->
+    <button class="play-pause-btn ui-element" id="playPauseBtn" aria-label="Play/Pause Slideshow">
+        <svg viewBox="0 0 24 24">
+            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        </svg>
+    </button>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container ui-element">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Duration Controls -->
+    <div class="duration-controls ui-element">
+        <button class="duration-btn" id="decreaseDuration" aria-label="Decrease Duration">−</button>
+        <div class="duration-display" id="durationDisplay">5<span>s</span></div>
+        <button class="duration-btn" id="increaseDuration" aria-label="Increase Duration">+</button>
+    </div>
+
+    <!-- About Overlay -->
+    <div class="overlay" id="aboutOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('about')">×</button>
+            <h2>About Us</h2>
+            <p>Suganing adalah tempat pemandian air bersih dan jernih. Airnya sangat dingin dan segar. </p>
+            <p>Suganing ini dikenal sebagai tempat wisata alam yang tersembunyi, di suganing juga ada air terjun kecil di area hutan, biasanya orang daatang untuk healing dan berenang.</p>
+            <p>Lokasi pemandian tersebut di Area susut, Kabuten Bangli. Disana biasanya parkir diatas lalu kita turun tangga/trekking ringan sekitar 30 menitan.</p>
+            <img src="images/WhatsApp Image 2026-02-07 at 19.02.27.jpeg"  class="overlay-image">
+        </div>
+    </div>
+
+    <!-- Testimonials Overlay -->
+    <div class="overlay" id="testimonialsOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('testimonials')">×</button>
+            <h2>Testimonials</h2>
+            
+            <div class="testimonial-card">
+                <p>"Disini tempatnya indah dan air nya sangat jernih, kita datang kesana pada tanggal pada tanggal 2Februari 2026, kita sangat puas bermain disana dan sambil berendam dan kita juga tidak lupa mengambil beberapa gambar disana."</p>
+                <p class="author">Masted: Gabugan anak DKV,PPLG,TKJ.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Overlay -->
+    <div class="overlay" id="contactOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('contact')">×</button>
+            <h2>Contact Us</h2>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Your name" required>
+                
+                <label>Email</label>
+                <input type="email" name="email" placeholder="your.email@example.com" required>
+                
+                <label>Subject</label>
+                <input type="text" name="subject" placeholder="What's this about?" required>
+                
+                <label>Message</label>
+                <textarea name="message" placeholder="Tell us more..." required></textarea>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Privacy Overlay -->
+    <div class="overlay" id="privacyOverlay">
+        <div class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay('privacy')">×</button>
+            <h2>Privacy Policy</h2>
+            <p>Disini saya hanya menggunakan templates HTML dan CSS untuk belajar dan saya juga merubah beberapa desain yang ada.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="ui-element">
+        <p>Copyright © 2026 Masted_SUGANING | <a href="#" onclick="openOverlay('privacy'); return false;">Privacy</a> | Design: Acode_Lann</p>
+    </footer>
+<script src="project.js"></script>
+</body>
+</html>
